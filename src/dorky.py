@@ -1,6 +1,9 @@
 import getopt
 import sys
 
+from dorks.gmaps import GoogleMaps
+from dorks.mysql import MySql
+
 def main(argv):
 	type = ''
 	try:
@@ -14,6 +17,17 @@ def main(argv):
 			sys.exit()
 		elif opt in ("-t","--type"):
 			type = arg
+	beginSearch(type)
+
+def beginSearch(type):
+	dork = 0
+	if type == 'GoogleMaps':
+		dork = GoogleMaps(type)
+	elif type == 'Mysql':
+		dork = MySql(type)
+	else:
+		dork = 0
+	print(dork)
 
 def printUsage():
 	print("dorky.py -t <type>")

@@ -1,3 +1,6 @@
+from dorks.dork import Dork
+from dorks.searchterm import SearchTerm
+
 class GoogleMaps(Dork):
 
 	ignores = ["API_KEY"]
@@ -6,6 +9,6 @@ class GoogleMaps(Dork):
 		dorks = ["https://maps.googleapis.com/maps/api/js?key="]
 		terms = []
 		for dork in dorks:
-			term = SearchTerm(dork, ignores)
+			term = SearchTerm(dork, GoogleMaps.ignores)
 			terms.append(term)
-		super.__init__(type, terms)
+		super(GoogleMaps, self).__init__(type, terms)

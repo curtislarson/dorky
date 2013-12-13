@@ -1,3 +1,6 @@
+from dorks.dork import Dork
+from dorks.searchterm import SearchTerm
+
 class MySql(Dork):
 
 	ignores = ["localhost"]
@@ -9,6 +12,6 @@ class MySql(Dork):
 				 "mysqli_select_db"]
 		terms = []
 		for dork in dorks:
-			term = SearchTerm(dork, ignores)
+			term = SearchTerm(dork, MySql.ignores)
 			terms.append(term)
-		super.__init__(type, terms)
+		super(MySql, self).__init__(type, terms)
