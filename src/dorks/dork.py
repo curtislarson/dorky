@@ -1,5 +1,11 @@
 class Dork():
 
-	def __init__(self, type, dorks):
+	def __init__(self, type, terms):
 		self.type = type
-		self.dorks = dorks
+		self.terms = terms
+
+
+	class SearchTerm():
+		def __init__(self, term, ignores):
+			self.term = term
+			self.ignores = ignores

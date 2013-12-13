@@ -1,11 +1,5 @@
 import getopt
 import sys
-import urllib2
-
-
-def getSource(url):
-	page = urllib2.urlopen(url)
-	return page.read()
 
 def main(argv):
 	type = ''
