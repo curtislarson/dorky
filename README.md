@@ -12,3 +12,14 @@ enables to check for something new over the different scopes of searches.
 
 - Use python class / recommended program structure in order to improve one's
 own knowledge of python
+
+- Each dork is initialized with an array of strings and they inherit on 
+the  base dork class, which will provide specific methods we might
+need and necessary overrides so it is easy to add a new dork.
+
+- A source can then operate on either a generic method that will perform
+ the correct searching for the dorks regardless of which specific class
+ they are, or each implement a seperate method for the searching.
+
+ - We can combine two things into one so each can be added easily and they
+ all work with each other.
