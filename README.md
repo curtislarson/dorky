@@ -23,3 +23,6 @@ need and necessary overrides so it is easy to add a new dork.
 
  - We can combine two things into one so each can be added easily and they
  all work with each other.
+
+ - Each source will have a google specific url for scrapeing and also
+ a site url that uses their internal search system.
