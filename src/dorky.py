@@ -24,8 +24,16 @@ def main(argv):
 	beginSearch(type.lower(), sourceType.lower())
 
 def beginSearch(type, sourceType):
-	dork = getDork(type)
-	source = getSource(sourceType)
+	dorks = []
+	if type == 'all':
+		dorks = getDorks()
+	else:
+		dorks.insert(0, getDork(type))
+	sources = []
+	if sourceType == 'all':
+		sources = getSources()
+	else:
+		sources.insert(0, getSource(sourceType))
 
 def getDork(type):
 	dork = 0
@@ -39,6 +47,13 @@ def getDork(type):
 		dork = 0
 	return dork
 
+def getDorks():
+	dorks = []
+	dorks.insert(0, getDork('googlemaps'))
+	dorks.insert(0, getDork('mysql'))
+	dorks.insert(0, getDork('amazon'))
+	return dorks
+
 def getSource(type):
 	source = 0
 	if type == 'github':
@@ -48,6 +63,12 @@ def getSource(type):
 	else:
 		source = 0
 	return source
+
+def getSources():
+	sources = []
+	sources.insert(0, getSource('github'))
+	sources.insert(0, getSource('pastebin'))
+	return sources
 
 def printUsage():
 	print("dorky.py -t <type>")
