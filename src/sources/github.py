@@ -7,4 +7,6 @@ class GitHub(Source):
 		self.siteUrl = "https://github.com/search?type=Code&q="
 
 	def executeDork(self, dork):
-		for terms in dork.terms:
+		print(dork)
+		for term in dork.terms:
+			print(term)

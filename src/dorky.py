@@ -5,9 +5,12 @@ from dorks.gmaps import GoogleMaps
 from dorks.mysql import MySql
 from dorks.amazon import Amazon
 
+from sources.pastebin import Pastebin
+from sources.github import GitHub
+
 def main(argv):
-	type = ''
-	sourceType = ''
+	type = 'all'
+	sourceType = 'all'
 	try:
 		opts,args = getopt.getopt(argv, "t:s:h:", ["type=","source=", "help"])
 	except getopt.GetoptError:
@@ -35,6 +38,10 @@ def beginSearch(type, sourceType):
 	else:
 		sources.insert(0, getSource(sourceType))
 
+	for source in sources:
+		for dork in dorks:
+			source.executeDork(dork)
+
 def getDork(type):
 	dork = 0
 	if type == 'googlemaps':
@@ -57,7 +64,7 @@ def getDorks():
 def getSource(type):
 	source = 0
 	if type == 'github':
-		source = Github()
+		source = GitHub()
 	elif type == 'pastebin':
 		source = Pastebin()
 	else:
