@@ -11,6 +11,12 @@ class GitHub(Source):
 		print(dork)
 		for term in dork.terms:
 			self.executeGoogleDork(term.dork, term.ignores)
+			self.executeGithubDork(term.dork, term.ignores)
+
+	def executeGithubDork(self, dork, ignores):
+		githubSearchUrl = self.siteUrl + dork
+		source = self.getSource(githubSearchUrl)
+		print(source)
 
 	def executeGoogleDork(self, dork, ignores):
 		googleSearchUrl = self.getGoogleSearchUrl(self.googleUrl, dork, ignores)

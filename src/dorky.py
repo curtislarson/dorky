@@ -78,7 +78,7 @@ def getSources():
 	return sources
 
 def printUsage():
-	print("dorky.py -t <type>")
+	print("dorky.py -t <dork type> -s <source>")
 
 if __name__ == '__main__':
 	main(sys.argv[1:])
