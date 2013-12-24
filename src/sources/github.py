@@ -14,4 +14,5 @@ class GitHub(Source):
 
 	def executeGoogleDork(self, dork, ignores):
 		googleSearchUrl = self.getGoogleSearchUrl(self.googleUrl, dork, ignores)
-		print(googleSearchUrl)
+		source = self.getSource(googleSearchUrl)
+		print(source)

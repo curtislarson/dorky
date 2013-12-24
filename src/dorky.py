@@ -23,7 +23,7 @@ def main(argv):
 		elif opt in ("-t","--type"):
 			type = arg
 		elif opt in ("-s", "--source"):
-			source = arg
+			sourceType = arg
 	beginSearch(type.lower(), sourceType.lower())
 
 def beginSearch(type, sourceType):
