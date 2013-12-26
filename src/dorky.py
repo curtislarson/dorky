@@ -4,6 +4,7 @@ import sys
 from dorks.gmaps import GoogleMaps
 from dorks.mysql import MySql
 from dorks.amazon import Amazon
+from dorks.rsa import Rsa
 
 from sources.pastebin import Pastebin
 from sources.github import GitHub
@@ -50,6 +51,8 @@ def getDork(type):
 		dork = MySql(type)
 	elif type == 'amazon':
 		dork = Amazon(type)
+	elif type == 'rsa':
+		dork = Rsa(type)
 	else:
 		dork = 0
 	return dork
@@ -59,6 +62,7 @@ def getDorks():
 	dorks.insert(0, getDork('googlemaps'))
 	dorks.insert(0, getDork('mysql'))
 	dorks.insert(0, getDork('amazon'))
+	dorks.insert(0, getDork('rsa'))
 	return dorks
 
 def getSource(type):
