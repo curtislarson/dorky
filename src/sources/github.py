@@ -21,4 +21,6 @@ class GitHub(Source):
 	def executeGoogleDork(self, dork, ignores):
 		googleSearchUrl = self.getGoogleSearchUrl(self.googleUrl, dork, ignores)
 		source = self.getSource(googleSearchUrl)
-		print(source)
+		# String we are looking for
+		# <h3 class="r"><a href="
+		# end with double quotes

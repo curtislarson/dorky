@@ -11,7 +11,7 @@ class Pastebin(Source):
 		print(dork)
 		for term in dork.terms:
 			self.executeGoogleDork(term.dork, term.ignores)
-			self.executePastebinDork(term.dork, term.ignores)
+			#self.executePastebinDork(term.dork, term.ignores)
 
 	def executePastebinDork(self, dork, ignores):
 		# Looks like for pastebin you need a partner-pub query string
@@ -24,4 +24,6 @@ class Pastebin(Source):
 	def executeGoogleDork(self, dork, ignores):
 		googleSearchUrl = self.getGoogleSearchUrl(self.googleUrl, dork, ignores)
 		source = self.getSource(googleSearchUrl)
-		print(source)
+		# String we are looking for
+		# <h3 class="r"><a href="
+		# end with double quotes
