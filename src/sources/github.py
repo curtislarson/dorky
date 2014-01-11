@@ -1,5 +1,6 @@
 from sources.source import Source
 from dorks.searchterm import SearchTerm
+import re
 
 class GitHub(Source):
 	def __init__(self):
@@ -11,7 +12,7 @@ class GitHub(Source):
 		print(dork)
 		for term in dork.terms:
 			self.executeGoogleDork(term.dork, term.ignores)
-			self.executeGithubDork(term.dork, term.ignores)
+			#self.executeGithubDork(term.dork, term.ignores)
 
 	def executeGithubDork(self, dork, ignores):
 		githubSearchUrl = self.siteUrl + dork
@@ -21,6 +22,8 @@ class GitHub(Source):
 	def executeGoogleDork(self, dork, ignores):
 		googleSearchUrl = self.getGoogleSearchUrl(self.googleUrl, dork, ignores)
 		source = self.getSource(googleSearchUrl)
+		matches = re.findall("<h3 class=\"r\"><a href=\"(https://github.com/[a-zA-Z0-9/\-_\.]*)\"", source)
+		print(matches)
 		# String we are looking for
 		# <h3 class="r"><a href="
 		# end with double quotes
