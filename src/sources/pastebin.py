@@ -1,5 +1,6 @@
 from sources.source import Source
 from dorks.searchterm import SearchTerm
+import re
 
 class Pastebin(Source):
 	def __init__(self):
@@ -24,6 +25,8 @@ class Pastebin(Source):
 	def executeGoogleDork(self, dork, ignores):
 		googleSearchUrl = self.getGoogleSearchUrl(self.googleUrl, dork, ignores)
 		source = self.getSource(googleSearchUrl)
+		matches = re.findall("<h3 class=\"r\"><a href=\"(http://pastebin.com/[a-zA-Z0-9]*)\"", source)
+		print(matches)
 		# String we are looking for
 		# <h3 class="r"><a href="
 		# end with double quotes
